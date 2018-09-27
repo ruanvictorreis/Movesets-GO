@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movesets GO</string>
+    <string name="about">Sobre o app</string>
+    <string name="app">App</string>
+    <string name="action_settings">Configurações</string>
+    <string name="basic_attack">Ataque Básico</string>
+    <string name="charge_attack">Ataque  Especial</string>
+    <string name="communicate">Contato</string>
+    <string name="developer">Desenvolvedor</string>
+    <string name="graphics">Gráficos</string>
+    <string name="graphics_provider">Gráficos Fornecidos por Vecteezy!</string>
+    <string name="loading">Carregando&#8230;</string>
+    <string name="navigation_drawer_close">Fechar a navegação</string>
+    <string name="navigation_drawer_open">Abrir a navegação</string>
+    <string name="remove">Remover</string>
+    <string name="search_pokemon">Pesquisar</string>
+    <string name="title_activity_pokemon_type">Tipos</string>
+    <string name="to_attack">Para Atacar</string>
+    <string name="to_defend">Para Defender</string>
+    <string name="type_pokemon">Tipos de Pokémon</string>
+    <string name="version">Versão 2.0</string>
+    <string name="attack">Ataque</string>
+    <string name="defense">Defesa</string>
+    <string name="order_by_number">Ordenar por número</string>
+    <string name="order_by_name">Ordenar por nome</string>
+    <string name="order_by_max_cp">Ordenar por CP</string>
+    <string name="strong_against">Forte Contra:</string>
+    <string name="weak_against">Fraco Contra:</string>
+    <string name="add_to_favorites">Adicionar aos favoritos</string>
+    <string name="show_legacy_movesets">Mostrar movesets antigos</string>
+    <string name="added_to_favorites">adicionado aos favoritos</string>
+    <string name="favorites">Favoritos</string>
+    <string name="get_premium">Versão Premium</string>
+    <string name="no_ads">- Sem anúncios</string>
+    <string name="picture_of_pokemon">- Imagens dos pokémons (Em breve)</string>
+    <string name="hello_pokemon_trainer">Olá, treinador Pokémon!</string>
+    <string name="pro_ads_message">Quer se livrar dos anúncios? Confira a versão premium do Movesets GO!</string>
+    <string name="yeah_go">Sim, vamos lá!</string>
+    <string name="no_thanks">Não, obrigado</string>
+    <string name="promotional_codes">Códigos Promocionais</string>
+    <string name="title_activity_promotional_codes">PromotionalCodesActivity</string>
+    <string name="removed">Removido</string>
+    <string name="show_available_movesets">Mostrar movesets disponíveis</string>
+    <string name="show_tms_movesets">Mostrar combinações com TMs</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/moveset_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/ranking_position"
+        style="@style/RankingLabelTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/ranking_position" />
+
+    <ImageView
+        android:id="@+id/basicMoveType"
+        android:layout_width="@dimen/type_icon_size"
+        android:layout_height="@dimen/type_icon_size"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/ranking_position" />
+
+    <TextView
+        android:id="@+id/basic_attack_name"
+        style="@style/MoveLabelTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/basicMoveType"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/basicMoveType"
+        android:text="@string/basic_attack" />
+
+    <ImageView
+        android:id="@+id/chargeMoveType"
+        android:layout_width="@dimen/type_icon_size"
+        android:layout_height="@dimen/type_icon_size"
+        android:layout_below="@+id/basicMoveType"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_toRightOf="@+id/ranking_position" />
+
+    <TextView
+        android:id="@+id/charge_attack_name"
+        style="@style/MoveLabelTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/basic_attack_name"
+        android:layout_alignTop="@+id/chargeMoveType"
+        android:text="@string/charge_attack" />
+
+    <TextView
+        android:id="@+id/damage_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/moveset_damage_percent"
+        android:textColor="@color/colorGray"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/moveset_dps"
+        style="@style/DamageLabelTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/moveset_damage" />
+
+</RelativeLayout>

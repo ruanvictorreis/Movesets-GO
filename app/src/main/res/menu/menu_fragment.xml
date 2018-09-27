@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_show_available"
+        android:orderInCategory="200"
+        android:title="@string/show_available_movesets"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_show_legacy"
+        android:orderInCategory="200"
+        android:title="@string/show_legacy_movesets"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_show_tms"
+        android:orderInCategory="200"
+        android:title="@string/show_tms_movesets"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_pokedex"
+        android:icon="@drawable/ic_pokeball_white_24dp"
+        android:orderInCategory="200"
+        android:title="@string/pokedex"
+        app:showAsAction="ifRoom" />
+</menu>
