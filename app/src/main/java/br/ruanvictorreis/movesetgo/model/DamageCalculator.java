@@ -14,7 +14,7 @@ public class DamageCalculator {
     }
 
     public Double noWeaveDamage(Moveset moveset) {
-        Double duration = moveset.getBasicMove().getDuration();
+        Double duration = moveset.getFastMove().getDuration();
         return fourthExpression(moveset) * Math.floor(100000 / duration);
     }
 
@@ -26,8 +26,8 @@ public class DamageCalculator {
 
     private Double firstExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -35,8 +35,8 @@ public class DamageCalculator {
             weaveCycle = spentEnergy / gainedEnergy;
         }
 
-        Double durationBasicMove = moveset.getBasicMove().getDuration();
-        Double durationChargedMove = moveset.getChargedMove().getDuration();
+        Double durationBasicMove = moveset.getFastMove().getDuration();
+        Double durationChargedMove = moveset.getChargeMove().getDuration();
         weaveCycle = weaveCycle * durationBasicMove + (durationChargedMove + 0);
 
         return Math.floor(100000 / weaveCycle);
@@ -44,14 +44,14 @@ public class DamageCalculator {
 
     private Double secondExpression(Moveset moveset) {
         Pokemon pokemon = moveset.getPokemon();
-        ChargedMove chargedMove = moveset.getChargedMove();
+        ChargeMove chargeMove = moveset.getChargeMove();
 
         Double typeFactor = 1d;
-        Double damageChargeAtt = chargedMove.getDamage();
-        Double criticalChargeAtt = chargedMove.getCritical();
+        Double damageChargeAtt = chargeMove.getDamage();
+        Double criticalChargeAtt = chargeMove.getCritical();
         Double critiaclDamBonus = 0d;
 
-        if (pokemon.containsType(chargedMove.getType())) {
+        if (pokemon.containsType(chargeMove.getType())) {
             typeFactor += 0.2d;
         }
 
@@ -60,8 +60,8 @@ public class DamageCalculator {
 
     private Double thirdExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -74,20 +74,20 @@ public class DamageCalculator {
 
     private Double fourthExpression(Moveset moveset) {
         Pokemon pokemon = moveset.getPokemon();
-        BasicMove basicMove = moveset.getBasicMove();
+        FastMove fastMove = moveset.getFastMove();
 
         Double typeFactor = 1d;
-        if (pokemon.containsType(basicMove.getType())) {
+        if (pokemon.containsType(fastMove.getType())) {
             typeFactor += 0.2d;
         }
 
-        return basicMove.getDamage() * typeFactor;
+        return fastMove.getDamage() * typeFactor;
     }
 
     private Double fifthExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -95,8 +95,8 @@ public class DamageCalculator {
             weaveCycle = spentEnergy / gainedEnergy;
         }
 
-        Double durationBasicAtt = moveset.getBasicMove().getDuration();
-        Double durationChargedAtt = moveset.getChargedMove().getDuration();
+        Double durationBasicAtt = moveset.getFastMove().getDuration();
+        Double durationChargedAtt = moveset.getChargeMove().getDuration();
 
         return Math.floor((100000 - (firstExpression(moveset) * (durationChargedAtt + 0)
                 + Math.ceil(firstExpression(moveset) * weaveCycle * durationBasicAtt))) / durationBasicAtt);
@@ -104,8 +104,8 @@ public class DamageCalculator {
 
     private Double sixthExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -113,8 +113,8 @@ public class DamageCalculator {
             weaveCycle = spentEnergy / gainedEnergy;
         }
 
-        Double durationBasicMove = moveset.getBasicMove().getDuration();
-        Double durationChargedMove = moveset.getChargedMove().getDuration();
+        Double durationBasicMove = moveset.getFastMove().getDuration();
+        Double durationChargedMove = moveset.getChargeMove().getDuration();
         weaveCycle = weaveCycle * (durationBasicMove + 2000) + (durationChargedMove + 0);
 
         return Math.floor(100000 / weaveCycle);
@@ -122,8 +122,8 @@ public class DamageCalculator {
 
     private Double seventhExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -136,8 +136,8 @@ public class DamageCalculator {
 
     private Double eighthExpression(Moveset moveset) {
         Double weaveCycle;
-        Double spentEnergy = moveset.getChargedMove().getSpentEnergy();
-        Double gainedEnergy = moveset.getBasicMove().getEnergy();
+        Double spentEnergy = moveset.getChargeMove().getSpentEnergy();
+        Double gainedEnergy = moveset.getFastMove().getEnergy();
 
         if (spentEnergy.equals(100d)) {
             weaveCycle = Math.ceil(spentEnergy / gainedEnergy);
@@ -145,8 +145,8 @@ public class DamageCalculator {
             weaveCycle = spentEnergy / gainedEnergy;
         }
 
-        Double durationBasicAtt = moveset.getBasicMove().getDuration();
-        Double durationChargedAtt = moveset.getChargedMove().getDuration();
+        Double durationBasicAtt = moveset.getFastMove().getDuration();
+        Double durationChargedAtt = moveset.getChargeMove().getDuration();
 
         return Math.floor((100000 - (sixthExpression(moveset) * (durationChargedAtt + 0)
                 + Math.ceil(sixthExpression(moveset) * weaveCycle * (durationBasicAtt + 2000))))

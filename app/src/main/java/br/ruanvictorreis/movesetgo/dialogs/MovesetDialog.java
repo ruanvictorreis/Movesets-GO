@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.ruanvictorreis.movesetgo.R;
-import br.ruanvictorreis.movesetgo.model.BasicMove;
-import br.ruanvictorreis.movesetgo.model.ChargedMove;
+import br.ruanvictorreis.movesetgo.model.FastMove;
+import br.ruanvictorreis.movesetgo.model.ChargeMove;
 import br.ruanvictorreis.movesetgo.model.Moveset;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
 import br.ruanvictorreis.movesetgo.util.Formatter;
@@ -34,8 +34,8 @@ public class MovesetDialog extends DialogFragment {
         setCancelable(false);
 
         Moveset moveset = getActivity().getIntent().getExtras().getParcelable("moveset");
-        BasicMove basicMove = moveset.getBasicMove();
-        ChargedMove chargedMove = moveset.getChargedMove();
+        FastMove fastMove = moveset.getFastMove();
+        ChargeMove chargeMove = moveset.getChargeMove();
 
         Pokemon pokemon = getActivity().getIntent().getExtras().getParcelable("pokemon");
 
@@ -48,18 +48,18 @@ public class MovesetDialog extends DialogFragment {
 
         ImageView quickMoveImage = (ImageView) view.findViewById(R.id.basicMoveType);
         ImageView mainMoveImage = (ImageView) view.findViewById(R.id.chargeMoveType);
-        quickMoveImage.setImageResource(basicMove.getType().getMipmapResource());
-        mainMoveImage.setImageResource(chargedMove.getType().getMipmapResource());
+        quickMoveImage.setImageResource(fastMove.getType().getMipmapResource());
+        mainMoveImage.setImageResource(chargeMove.getType().getMipmapResource());
 
         TextView quickMoveName = (TextView) view.findViewById(R.id.basic_attack_name);
         TextView mainMoveName = (TextView) view.findViewById(R.id.charge_attack_name);
-        quickMoveName.setText(basicMove.getName());
-        mainMoveName.setText(chargedMove.getName());
+        quickMoveName.setText(fastMove.getName());
+        mainMoveName.setText(chargeMove.getName());
 
         TextView quickMoveDps = (TextView) view.findViewById(R.id.move_quick_dps);
         TextView mainMoveDps = (TextView) view.findViewById(R.id.move_main_dps);
-        quickMoveDps.setText(Formatter.doubleWithoutDecimals(basicMove.getDamage()));
-        mainMoveDps.setText(Formatter.doubleWithoutDecimals(chargedMove.getDamage()));
+        quickMoveDps.setText(Formatter.doubleWithoutDecimals(fastMove.getDamage()));
+        mainMoveDps.setText(Formatter.doubleWithoutDecimals(chargeMove.getDamage()));
 
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override

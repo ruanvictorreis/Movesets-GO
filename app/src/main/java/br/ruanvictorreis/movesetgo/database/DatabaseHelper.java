@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.IOException;
 
-import br.ruanvictorreis.movesetgo.database.dao.BasicMovesDAO;
-import br.ruanvictorreis.movesetgo.database.dao.ChargedMovesDAO;
+import br.ruanvictorreis.movesetgo.database.dao.FastMovesDAO;
+import br.ruanvictorreis.movesetgo.database.dao.ChargeMovesDAO;
 import br.ruanvictorreis.movesetgo.database.dao.MovesetsDAO;
 import br.ruanvictorreis.movesetgo.database.dao.PokemonDAO;
 import br.ruanvictorreis.movesetgo.database.dao.TypeDAO;
@@ -21,15 +21,15 @@ import br.ruanvictorreis.movesetgo.database.dao.TypeWeaknessDAO;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MovesetPokemonGoPremium.db";
-    private static final int DATABASE_VERSION = 39;
+    private static final int DATABASE_VERSION = 40;
 
     private TypeDAO typeDAO;
 
     private PokemonDAO pokemonDAO;
 
-    private BasicMovesDAO basicMovesDAO;
+    private FastMovesDAO fastMovesDAO;
 
-    private ChargedMovesDAO chargedMovesDAO;
+    private ChargeMovesDAO chargeMovesDAO;
 
     private MovesetsDAO movesetsDAO;
 
@@ -42,8 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         this.typeDAO = new TypeDAO(context);
         this.pokemonDAO = new PokemonDAO(context);
-        this.basicMovesDAO = new BasicMovesDAO(context);
-        this.chargedMovesDAO = new ChargedMovesDAO(context);
+        this.fastMovesDAO = new FastMovesDAO(context);
+        this.chargeMovesDAO = new ChargeMovesDAO(context);
         this.movesetsDAO = new MovesetsDAO(context);
         this.typeStrengthDAO = new TypeStrengthDAO(context);
         this.typeWeaknessDAO = new TypeWeaknessDAO(context);
@@ -55,8 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(typeDAO.createTable());
             sqLiteDatabase.execSQL(pokemonDAO.createSpeciesTable());
             sqLiteDatabase.execSQL(pokemonDAO.createAlolaTable());
-            sqLiteDatabase.execSQL(basicMovesDAO.createTable());
-            sqLiteDatabase.execSQL(chargedMovesDAO.createTable());
+            sqLiteDatabase.execSQL(fastMovesDAO.createTable());
+            sqLiteDatabase.execSQL(chargeMovesDAO.createTable());
             sqLiteDatabase.execSQL(movesetsDAO.createNormalTable());
             sqLiteDatabase.execSQL(movesetsDAO.createAlolaTable());
             sqLiteDatabase.execSQL(typeStrengthDAO.createTable());
@@ -74,11 +74,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 sqLiteDatabase.execSQL(sql);
             }
 
-            for (String sql : basicMovesDAO.insertAll()) {
+            for (String sql : fastMovesDAO.insertAll()) {
                 sqLiteDatabase.execSQL(sql);
             }
 
-            for (String sql : chargedMovesDAO.insertAll()) {
+            for (String sql : chargeMovesDAO.insertAll()) {
                 sqLiteDatabase.execSQL(sql);
             }
 
@@ -109,8 +109,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(this.typeWeaknessDAO.dropTable());
         sqLiteDatabase.execSQL(this.movesetsDAO.dropNormalTable());
         sqLiteDatabase.execSQL(this.movesetsDAO.dropAlolaTable());
-        sqLiteDatabase.execSQL(this.chargedMovesDAO.dropTable());
-        sqLiteDatabase.execSQL(this.basicMovesDAO.dropTable());
+        sqLiteDatabase.execSQL(this.chargeMovesDAO.dropTable());
+        sqLiteDatabase.execSQL(this.fastMovesDAO.dropTable());
         sqLiteDatabase.execSQL(this.pokemonDAO.dropSpeciesTable());
         sqLiteDatabase.execSQL(this.pokemonDAO.dropAlolaTable());
         sqLiteDatabase.execSQL(this.typeDAO.dropTable());

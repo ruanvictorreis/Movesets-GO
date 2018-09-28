@@ -19,9 +19,9 @@ public class Moveset implements Parcelable, Comparable<Moveset> {
 
     private Double movesetDamage;
 
-    private BasicMove basicMove;
+    private FastMove fastMove;
 
-    private ChargedMove chargedMove;
+    private ChargeMove chargeMove;
 
     public Moveset() {
         super();
@@ -51,20 +51,20 @@ public class Moveset implements Parcelable, Comparable<Moveset> {
         this.movesetDamage = movesetDamage;
     }
 
-    public BasicMove getBasicMove() {
-        return basicMove;
+    public FastMove getFastMove() {
+        return fastMove;
     }
 
-    public void setBasicMove(BasicMove basicMove) {
-        this.basicMove = basicMove;
+    public void setFastMove(FastMove fastMove) {
+        this.fastMove = fastMove;
     }
 
-    public ChargedMove getChargedMove() {
-        return chargedMove;
+    public ChargeMove getChargeMove() {
+        return chargeMove;
     }
 
-    public void setChargedMove(ChargedMove chargedMove) {
-        this.chargedMove = chargedMove;
+    public void setChargeMove(ChargeMove chargeMove) {
+        this.chargeMove = chargeMove;
     }
 
     public Boolean getUpdated() {
@@ -95,8 +95,8 @@ public class Moveset implements Parcelable, Comparable<Moveset> {
         return "Moveset{" +
                 "id=" + id +
                 ", pokemon=" + pokemon +
-                ", basicMove=" + basicMove +
-                ", chargedMove=" + chargedMove +
+                ", fastMove=" + fastMove +
+                ", chargeMove=" + chargeMove +
                 ", movesetDamage=" + movesetDamage +
                 ", updated=" + updated +
                 '}';
@@ -110,8 +110,8 @@ public class Moveset implements Parcelable, Comparable<Moveset> {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeParcelable(pokemon, i);
-        parcel.writeParcelable(basicMove, i);
-        parcel.writeParcelable(chargedMove, i);
+        parcel.writeParcelable(fastMove, i);
+        parcel.writeParcelable(chargeMove, i);
 
         parcel.writeInt(id);
         parcel.writeInt(updated ? 1 : 0);
@@ -119,8 +119,8 @@ public class Moveset implements Parcelable, Comparable<Moveset> {
 
     public Moveset(Parcel source) {
         this.pokemon = source.readParcelable(Pokemon.class.getClassLoader());
-        this.basicMove = source.readParcelable(BasicMove.class.getClassLoader());
-        this.chargedMove = source.readParcelable(ChargedMove.class.getClassLoader());
+        this.fastMove = source.readParcelable(FastMove.class.getClassLoader());
+        this.chargeMove = source.readParcelable(ChargeMove.class.getClassLoader());
 
         this.id = source.readInt();
         this.updated = source.readInt() == 1;

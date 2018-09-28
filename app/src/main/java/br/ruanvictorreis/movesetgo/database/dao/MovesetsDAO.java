@@ -11,8 +11,8 @@ import java.util.List;
 
 import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.database.DatabaseHelper;
-import br.ruanvictorreis.movesetgo.model.BasicMove;
-import br.ruanvictorreis.movesetgo.model.ChargedMove;
+import br.ruanvictorreis.movesetgo.model.FastMove;
+import br.ruanvictorreis.movesetgo.model.ChargeMove;
 import br.ruanvictorreis.movesetgo.model.Moveset;
 import br.ruanvictorreis.movesetgo.model.MovesetKind;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
@@ -25,14 +25,14 @@ public class MovesetsDAO {
 
     private Context context;
 
-    private BasicMovesDAO basicMovesDAO;
+    private FastMovesDAO fastMovesDAO;
 
-    private ChargedMovesDAO chargedMovesDAO;
+    private ChargeMovesDAO chargeMovesDAO;
 
     public MovesetsDAO(Context context) {
         this.context = context;
-        this.basicMovesDAO = new BasicMovesDAO(context);
-        this.chargedMovesDAO = new ChargedMovesDAO(context);
+        this.fastMovesDAO = new FastMovesDAO(context);
+        this.chargeMovesDAO = new ChargeMovesDAO(context);
     }
 
     public String createNormalTable() {
@@ -92,8 +92,8 @@ public class MovesetsDAO {
                 Moveset moveset = new Moveset();
                 moveset.setId(cursor.getInt(0));
                 moveset.setPokemon(pokemon);
-                moveset.setBasicMove(basicMovesDAO.selectOne(cursor.getInt(2)));
-                moveset.setChargedMove(chargedMovesDAO.selectOne(cursor.getInt(3)));
+                moveset.setFastMove(fastMovesDAO.selectOne(cursor.getInt(2)));
+                moveset.setChargeMove(chargeMovesDAO.selectOne(cursor.getInt(3)));
                 moveset.setUpdated(cursor.getInt(4) == 1);
 
                 result.add(moveset);
@@ -118,25 +118,25 @@ public class MovesetsDAO {
 
     public List<Moveset> selectAllTMsCombinations(Pokemon pokemon) {
         List<Moveset> result = new ArrayList<>();
-        List<BasicMove> basicMoves = new ArrayList<>();
-        List<ChargedMove> chargedMoves = new ArrayList<>();
+        List<FastMove> fastMoves = new ArrayList<>();
+        List<ChargeMove> chargeMoves = new ArrayList<>();
 
         for (Moveset moveset : selectMovesetsWithLegacy(pokemon)) {
-            if (!basicMoves.contains(moveset.getBasicMove())) {
-                basicMoves.add(moveset.getBasicMove());
+            if (!fastMoves.contains(moveset.getFastMove())) {
+                fastMoves.add(moveset.getFastMove());
             }
 
-            if (!chargedMoves.contains(moveset.getChargedMove())) {
-                chargedMoves.add(moveset.getChargedMove());
+            if (!chargeMoves.contains(moveset.getChargeMove())) {
+                chargeMoves.add(moveset.getChargeMove());
             }
         }
 
-        for (BasicMove basicMove : basicMoves) {
-            for (ChargedMove chargedMove : chargedMoves) {
+        for (FastMove fastMove : fastMoves) {
+            for (ChargeMove chargeMove : chargeMoves) {
                 Moveset moveset = new Moveset();
                 moveset.setPokemon(pokemon);
-                moveset.setBasicMove(basicMove);
-                moveset.setChargedMove(chargedMove);
+                moveset.setFastMove(fastMove);
+                moveset.setChargeMove(chargeMove);
                 moveset.setUpdated(true);
                 result.add(moveset);
             }

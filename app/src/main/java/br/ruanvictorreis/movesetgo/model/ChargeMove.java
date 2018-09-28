@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * BasicMove Model
+ * ChargeMove Model
  * Updated by Ruan on 15/09/2017.
  */
 
-public class BasicMove implements Parcelable {
+public class ChargeMove implements Parcelable {
 
     private Integer id;
 
@@ -18,11 +18,13 @@ public class BasicMove implements Parcelable {
 
     private Double duration;
 
-    private Double energy;
+    private Double critical;
+
+    private Double spentEnergy;
 
     private Type type;
 
-    public BasicMove() {
+    public ChargeMove() {
         super();
     }
 
@@ -58,12 +60,20 @@ public class BasicMove implements Parcelable {
         this.duration = duration;
     }
 
-    public Double getEnergy() {
-        return energy;
+    public Double getCritical() {
+        return critical;
     }
 
-    public void setEnergy(Double energy) {
-        this.energy = energy;
+    public void setCritical(Double critical) {
+        this.critical = critical;
+    }
+
+    public Double getSpentEnergy() {
+        return spentEnergy;
+    }
+
+    public void setSpentEnergy(Double spentEnergy) {
+        this.spentEnergy = spentEnergy;
     }
 
     public Type getType() {
@@ -72,6 +82,12 @@ public class BasicMove implements Parcelable {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public String getPattern() {
+        String pattern = getName().trim().toUpperCase();
+        pattern = pattern.replace(" ", "_");
+        return pattern;
     }
 
     @Override
@@ -87,27 +103,29 @@ public class BasicMove implements Parcelable {
         parcel.writeString(name);
         parcel.writeDouble(damage);
         parcel.writeDouble(duration);
-        parcel.writeDouble(energy);
+        parcel.writeDouble(critical);
+        parcel.writeDouble(spentEnergy);
     }
 
-    private BasicMove(Parcel source) {
+    private ChargeMove(Parcel source) {
         this.type = source.readParcelable(Type.class.getClassLoader());
 
         this.id = source.readInt();
         this.name = source.readString();
         this.damage = source.readDouble();
         this.duration = source.readDouble();
-        this.energy = source.readDouble();
+        this.critical = source.readDouble();
+        this.spentEnergy = source.readDouble();
     }
 
-    public static final Creator<BasicMove> CREATOR
-            = new Creator<BasicMove>() {
-        public BasicMove createFromParcel(Parcel in) {
-            return new BasicMove(in);
+    public static final Creator<ChargeMove> CREATOR
+            = new Creator<ChargeMove>() {
+        public ChargeMove createFromParcel(Parcel in) {
+            return new ChargeMove(in);
         }
 
-        public BasicMove[] newArray(int size) {
-            return new BasicMove[size];
+        public ChargeMove[] newArray(int size) {
+            return new ChargeMove[size];
         }
     };
 }

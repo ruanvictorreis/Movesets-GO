@@ -13,8 +13,8 @@ import java.util.Collections;
 import java.util.List;
 
 import br.ruanvictorreis.movesetgo.R;
-import br.ruanvictorreis.movesetgo.model.BasicMove;
-import br.ruanvictorreis.movesetgo.model.ChargedMove;
+import br.ruanvictorreis.movesetgo.model.FastMove;
+import br.ruanvictorreis.movesetgo.model.ChargeMove;
 import br.ruanvictorreis.movesetgo.model.DamageCalculator;
 import br.ruanvictorreis.movesetgo.model.Moveset;
 import br.ruanvictorreis.movesetgo.util.Formatter;
@@ -74,13 +74,13 @@ public class MovesetDefenseAdapter extends RecyclerView.Adapter<MovesetDefenseAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Moveset moveset = movesetList.get(position);
-        BasicMove basicMove = moveset.getBasicMove();
-        ChargedMove chargedMove = moveset.getChargedMove();
+        FastMove fastMove = moveset.getFastMove();
+        ChargeMove chargeMove = moveset.getChargeMove();
 
-        holder.quickMoveName.setText(basicMove.getName());
-        holder.mainMoveName.setText(chargedMove.getName());
-        holder.quickMoveType.setImageResource(basicMove.getType().getMipmapResource());
-        holder.mainMoveType.setImageResource(chargedMove.getType().getMipmapResource());
+        holder.quickMoveName.setText(fastMove.getName());
+        holder.mainMoveName.setText(chargeMove.getName());
+        holder.quickMoveType.setImageResource(fastMove.getType().getMipmapResource());
+        holder.mainMoveType.setImageResource(chargeMove.getType().getMipmapResource());
 
         int ranking = position + 1;
         String rankingPositionFormatted = String.valueOf(ranking + "º");
