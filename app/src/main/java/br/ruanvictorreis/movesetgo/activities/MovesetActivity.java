@@ -41,8 +41,8 @@ public class MovesetActivity extends AppCompatActivity {
         }
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.to_attack)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.to_defend)));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_sword_white_36dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_shield_half_full_white_36dp));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
