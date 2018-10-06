@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/movesets-go.iml" filepath="$PROJECT_DIR$/movesets-go.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/movesets-go.iml" filepath="$PROJECT_DIR$/.idea/movesets-go.iml" />
     </modules>
   </component>

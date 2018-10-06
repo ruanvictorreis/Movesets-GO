@@ -23,20 +23,24 @@ import br.ruanvictorreis.movesetgo.util.RecyclerTouchListener;
 
 public class PokemonTypeActivity extends AppCompatActivity {
 
-    private AdView mAdView;
-
     private RecyclerView mRecyclerView;
 
     private List<Type> typeList;
+
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_type);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.types_recycler_view);
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mRecyclerView = findViewById(R.id.types_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -59,12 +63,22 @@ public class PokemonTypeActivity extends AppCompatActivity {
             }
         }));
 
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
         (new RecoveryTypesPokemonAsyncTask(this)).execute();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public List<Type> getTypeList() {
+        return typeList;
+    }
+
+    public void setTypeList(List<Type> typeList) {
+        this.typeList = typeList;
+    }
+
+    public void updateRecyclerView() {
+        RecyclerView.Adapter mAdapter = new PokemonTypesAdapter(getApplicationContext(), getTypeList());
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -89,19 +103,5 @@ public class PokemonTypeActivity extends AppCompatActivity {
             mAdView.destroy();
         }
         super.onDestroy();
-    }
-
-    public List<Type> getTypeList() {
-        return typeList;
-    }
-
-    public void setTypeList(List<Type> typeList) {
-        this.typeList = typeList;
-    }
-
-    public void updateRecyclerView() {
-        RecyclerView.Adapter mAdapter = new PokemonTypesAdapter(getApplicationContext(), getTypeList());
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
     }
 }
