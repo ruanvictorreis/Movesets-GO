@@ -110,7 +110,7 @@ public class ChargeMovesDAO {
     }
 
     private String getTranslation(String pattern) throws IOException, JSONException {
-        String language = Locale.getDefault().getLanguage();
+        String language = Locale.getDefault().toString();
         String file = language + "_moves.json";
 
         AssetManager assetManager = context.getAssets();
