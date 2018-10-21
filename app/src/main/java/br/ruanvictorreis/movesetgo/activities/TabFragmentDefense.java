@@ -10,9 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -27,10 +24,8 @@ import br.ruanvictorreis.movesetgo.asyncs.RecoveryMovesetAsyncTask;
 import br.ruanvictorreis.movesetgo.dialogs.MovesetDialog;
 import br.ruanvictorreis.movesetgo.model.Moveset;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
-import br.ruanvictorreis.movesetgo.strategy.AvailableMovesets;
 import br.ruanvictorreis.movesetgo.strategy.LegacyMovesets;
 import br.ruanvictorreis.movesetgo.strategy.MovesetQuery;
-import br.ruanvictorreis.movesetgo.strategy.TMsMovesets;
 import br.ruanvictorreis.movesetgo.util.ClickListener;
 import br.ruanvictorreis.movesetgo.util.DividerItemDecoration;
 import br.ruanvictorreis.movesetgo.util.RecyclerTouchListener;
@@ -48,7 +43,7 @@ public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment_defense, container, false);
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -115,6 +110,7 @@ public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
         request(movesetQuery);
     }
 
+    /*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_fragment, menu);
@@ -140,7 +136,7 @@ public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
         }
 
         return false;
-    }
+    }*/
 
     public void setMovesetList(List<Moveset> movesetList) {
         this.movesetList = movesetList;

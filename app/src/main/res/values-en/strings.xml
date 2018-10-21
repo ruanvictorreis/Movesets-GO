@@ -43,4 +43,5 @@
     <string name="removed">Removed</string>
     <string name="show_available_movesets">Show available movesets</string>
     <string name="show_tms_movesets">Show TMs combinations</string>
+    <string name="pokemon_stats">Stats</string>
 </resources>

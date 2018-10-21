@@ -35,6 +35,7 @@
     <string name="graphics_site" translatable="false">https://www.vecteezy.com</string>
 
     <string name="admob_app_id" translatable="false">ca-app-pub-1666278822086343~6483933915</string>
+    <string name="stats_banner" translatable="false">ca-app-pub-1666278822086343/4812222330</string>
     <string name="banner_home_footer" translatable="false">ca-app-pub-1666278822086343/9562581914</string>
     <string name="banner_pokemon_types" translatable="false">ca-app-pub-1666278822086343/2061906312</string>
     <string name="attack_banner_movesets" translatable="false">ca-app-pub-1666278822086343/8585376313</string>
@@ -80,5 +81,6 @@
     <string name="allow_pokemon_image" translatable="false">allow_pokemon_image</string>
     <string name="show_available_movesets">Show available movesets</string>
     <string name="show_tms_movesets">Show TMs combinations</string>
+    <string name="pokemon_stats">Stats</string>
 
 </resources>

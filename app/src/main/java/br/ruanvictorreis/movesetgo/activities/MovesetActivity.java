@@ -7,19 +7,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.adapters.PagerAdapter;
-import br.ruanvictorreis.movesetgo.dialogs.PokeDexDialog;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
 
 public class MovesetActivity extends AppCompatActivity {
-
-    private static final String POKEDEX_TAG = "POKEDEX";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +38,7 @@ public class MovesetActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_sword_white_36dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_shield_half_full_white_36dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_pokeball_white_48dp));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
@@ -66,30 +62,5 @@ public class MovesetActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_pokedex) {
-            showPokedexInfo();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void showPokedexInfo() {
-        PokeDexDialog pokeDexDialog = new PokeDexDialog();
-        pokeDexDialog.show(getFragmentManager(), POKEDEX_TAG);
     }
 }

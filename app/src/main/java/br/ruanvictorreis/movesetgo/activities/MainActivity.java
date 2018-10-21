@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity
                 Pokemon pokemon = getPokemonList().get(position);
                 Intent intent = new Intent(getApplicationContext(), MovesetActivity.class);
                 intent.putExtra("pokemon", pokemon);
+                intent.putExtra("imageAllowed", isImageAllowed());
                 startActivity(intent);
             }
 

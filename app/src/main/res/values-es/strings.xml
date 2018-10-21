@@ -43,4 +43,5 @@
     <string name="removed">Retirado</string>
     <string name="show_available_movesets">Mostrar los movimientos disponibles</string>
     <string name="show_tms_movesets">Mostrar combinaciones con TMs</string>
+    <string name="pokemon_stats">Estadísticas</string>
 </resources>

@@ -1,6 +1,6 @@
 package br.ruanvictorreis.movesetgo.adapters;
 
-/**
+/*
  * Pager  Adapter
  * Created by Ruan on 09/10/2016.
  */
@@ -11,9 +11,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import br.ruanvictorreis.movesetgo.activities.TabFragmentAttack;
 import br.ruanvictorreis.movesetgo.activities.TabFragmentDefense;
+import br.ruanvictorreis.movesetgo.activities.TabFragmentStats;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
-    int mNumOfTabs;
+
+    private int mNumOfTabs;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
@@ -25,11 +27,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                TabFragmentAttack tab1 = new TabFragmentAttack();
-                return tab1;
+                return new TabFragmentAttack();
             case 1:
-                TabFragmentDefense tab2 = new TabFragmentDefense();
-                return tab2;
+                return new TabFragmentDefense();
+            case 2:
+                return new TabFragmentStats();
             default:
                 return null;
         }
