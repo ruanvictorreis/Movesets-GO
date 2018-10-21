@@ -37,7 +37,8 @@
     <string name="admob_app_id" translatable="false">ca-app-pub-1666278822086343~6483933915</string>
     <string name="banner_home_footer" translatable="false">ca-app-pub-1666278822086343/9562581914</string>
     <string name="banner_pokemon_types" translatable="false">ca-app-pub-1666278822086343/2061906312</string>
-    <string name="banner_movesets" translatable="false">ca-app-pub-1666278822086343/8585376313</string>
+    <string name="attack_banner_movesets" translatable="false">ca-app-pub-1666278822086343/8585376313</string>
+    <string name="defense_banner_movesets" translatable="false">ca-app-pub-1666278822086343/7643180053</string>
 
     <string name="title_activity_main" translatable="false">MainActivity</string>
 

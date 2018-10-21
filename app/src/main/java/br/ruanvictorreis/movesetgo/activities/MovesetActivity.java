@@ -12,9 +12,6 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.adapters.PagerAdapter;
 import br.ruanvictorreis.movesetgo.dialogs.PokeDexDialog;
@@ -24,18 +21,12 @@ public class MovesetActivity extends AppCompatActivity {
 
     private static final String POKEDEX_TAG = "POKEDEX";
 
-    private AdView mAdView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moveset);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         Pokemon pokemon = getIntent().getExtras().getParcelable("pokemon");
         if (pokemon != null) {
@@ -75,30 +66,6 @@ public class MovesetActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public void onPause() {
-        if (mAdView != null) {
-            mAdView.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (mAdView != null) {
-            mAdView.resume();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (mAdView != null) {
-            mAdView.destroy();
-        }
-        super.onDestroy();
     }
 
     @Override

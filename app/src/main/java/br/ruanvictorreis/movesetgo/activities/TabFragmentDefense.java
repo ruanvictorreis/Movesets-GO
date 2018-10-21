@@ -16,6 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 import br.ruanvictorreis.movesetgo.R;
@@ -34,6 +37,8 @@ import br.ruanvictorreis.movesetgo.util.RecyclerTouchListener;
 
 public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
 
+    private AdView mAdView;
+
     private List<Moveset> movesetList;
 
     private RecyclerView mRecyclerView;
@@ -44,6 +49,10 @@ public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment_defense, container, false);
         setHasOptionsMenu(true);
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.moveset_defense_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -70,6 +79,30 @@ public class TabFragmentDefense extends Fragment implements TabFragmentMoveset {
 
         request();
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 
     private void request(MovesetQuery movesetQuery) {
