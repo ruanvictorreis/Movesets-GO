@@ -25,8 +25,8 @@
     <string name="order_by_number">Ordenar por número</string>
     <string name="order_by_name">Ordenar por nome</string>
     <string name="order_by_max_cp">Ordenar por CP</string>
-    <string name="strong_against">Forte Contra:</string>
-    <string name="weak_against">Fraco Contra:</string>
+    <string name="strong_against">Resistência:</string>
+    <string name="weak_against">Fraqueza:</string>
     <string name="add_to_favorites">Adicionar aos favoritos</string>
     <string name="show_legacy_movesets">Mostrar movesets antigos</string>
     <string name="added_to_favorites">adicionado aos favoritos</string>

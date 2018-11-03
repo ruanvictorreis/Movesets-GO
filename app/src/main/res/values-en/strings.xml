@@ -25,8 +25,8 @@
     <string name="order_by_number">Sort by number</string>
     <string name="order_by_name">Sort by name</string>
     <string name="order_by_max_cp">Sort by CP</string>
-    <string name="strong_against">Strong Against:</string>
-    <string name="weak_against">Weak Against:</string>
+    <string name="strong_against">Resistance:</string>
+    <string name="weak_against">Weakness:</string>
     <string name="add_to_favorites">Add to favorites</string>
     <string name="show_legacy_movesets">Show legacy movesets</string>
     <string name="added_to_favorites">added to favorites</string>

@@ -100,7 +100,7 @@ public class Pokemon implements Parcelable {
     }
 
     public String getSuggestionPictureLink() {
-        return "https://pokemon.gameinfo.io/images/pokemon-go/" + getFormattedId() + "-00.png";
+        return "https://db.pokemongohub.net/images/official/full/" + getFormattedId() + ".png";
     }
 
     private String getFormattedId() {

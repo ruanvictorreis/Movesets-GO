@@ -23,7 +23,7 @@ public class TypeDAO {
 
     private Context context;
 
-    private TypeStrengthDAO typeStrengthDAO;
+    private TypeResistanceDAO typeResistanceDAO;
 
     private TypeWeaknessDAO typeWeaknessDAO;
 
@@ -33,7 +33,7 @@ public class TypeDAO {
 
     public TypeDAO(Context context) {
         this.context = context;
-        this.typeStrengthDAO = new TypeStrengthDAO(context);
+        this.typeResistanceDAO = new TypeResistanceDAO(context);
         this.typeWeaknessDAO = new TypeWeaknessDAO(context);
         this.cache = new HashMap<>();
     }
@@ -67,7 +67,7 @@ public class TypeDAO {
                 Type type = new Type();
                 type.setId(cursor.getInt(0));
                 type.setName(cursor.getString(1));
-                type.setStrengthChart(typeStrengthDAO.selectSimpleStrengthTypes(type.getId()));
+                type.setStrengthChart(typeResistanceDAO.selectSimpleStrengthTypes(type.getId()));
                 type.setWeaknessChart(typeWeaknessDAO.selectSimpleWeaknessTypes(type.getId()));
 
                 result.add(type);

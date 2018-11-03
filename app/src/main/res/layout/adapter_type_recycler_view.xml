@@ -33,37 +33,10 @@
         android:text="@string/type_pokemon" />
 
     <LinearLayout
-        android:id="@+id/strength_types_linear"
+        android:id="@+id/weakness_types_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/type_name"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_half_margin"
-        android:layout_toEndOf="@+id/type_image"
-        android:layout_toRightOf="@+id/type_image"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/TypePropertyTextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/strong_against" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/types_strength_recycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_half_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_half_margin" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/strength_types_linear"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_half_margin"
@@ -80,6 +53,34 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/types_weakness_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_half_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_half_margin" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/strength_types_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weakness_types_linear"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_half_margin"
+        android:layout_toEndOf="@+id/type_image"
+        android:layout_toRightOf="@+id/type_image"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TypePropertyTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strong_against" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/types_strength_recycler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_half_margin"

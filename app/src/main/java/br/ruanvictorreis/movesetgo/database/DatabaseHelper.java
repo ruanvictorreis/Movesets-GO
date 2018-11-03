@@ -11,7 +11,7 @@ import br.ruanvictorreis.movesetgo.database.dao.ChargeMovesDAO;
 import br.ruanvictorreis.movesetgo.database.dao.MovesetsDAO;
 import br.ruanvictorreis.movesetgo.database.dao.PokemonDAO;
 import br.ruanvictorreis.movesetgo.database.dao.TypeDAO;
-import br.ruanvictorreis.movesetgo.database.dao.TypeStrengthDAO;
+import br.ruanvictorreis.movesetgo.database.dao.TypeResistanceDAO;
 import br.ruanvictorreis.movesetgo.database.dao.TypeWeaknessDAO;
 
 /**
@@ -21,7 +21,7 @@ import br.ruanvictorreis.movesetgo.database.dao.TypeWeaknessDAO;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MovesetPokemonGoPremium.db";
-    private static final int DATABASE_VERSION = 44;
+    private static final int DATABASE_VERSION = 45;
 
     private TypeDAO typeDAO;
 
@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private MovesetsDAO movesetsDAO;
 
-    private TypeStrengthDAO typeStrengthDAO;
+    private TypeResistanceDAO typeResistanceDAO;
 
     private TypeWeaknessDAO typeWeaknessDAO;
 
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.fastMovesDAO = new FastMovesDAO(context);
         this.chargeMovesDAO = new ChargeMovesDAO(context);
         this.movesetsDAO = new MovesetsDAO(context);
-        this.typeStrengthDAO = new TypeStrengthDAO(context);
+        this.typeResistanceDAO = new TypeResistanceDAO(context);
         this.typeWeaknessDAO = new TypeWeaknessDAO(context);
     }
 
@@ -59,7 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(chargeMovesDAO.createTable());
             sqLiteDatabase.execSQL(movesetsDAO.createNormalTable());
             sqLiteDatabase.execSQL(movesetsDAO.createAlolaTable());
-            sqLiteDatabase.execSQL(typeStrengthDAO.createTable());
+            sqLiteDatabase.execSQL(typeResistanceDAO.createTable());
             sqLiteDatabase.execSQL(typeWeaknessDAO.createTable());
 
             for (String sql : typeDAO.insertAll()) {
@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 sqLiteDatabase.execSQL(sql);
             }
 
-            for (String sql : typeStrengthDAO.insertAll()) {
+            for (String sql : typeResistanceDAO.insertAll()) {
                 sqLiteDatabase.execSQL(sql);
             }
 
@@ -105,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(this.typeStrengthDAO.dropTable());
+        sqLiteDatabase.execSQL(this.typeResistanceDAO.dropTable());
         sqLiteDatabase.execSQL(this.typeWeaknessDAO.dropTable());
         sqLiteDatabase.execSQL(this.movesetsDAO.dropNormalTable());
         sqLiteDatabase.execSQL(this.movesetsDAO.dropAlolaTable());

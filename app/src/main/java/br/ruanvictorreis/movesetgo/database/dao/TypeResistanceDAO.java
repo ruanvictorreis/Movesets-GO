@@ -17,13 +17,13 @@ import br.ruanvictorreis.movesetgo.model.Type;
  * Data Access Object
  * Created by Ruan on 08/10/2016.
  */
-public class TypeStrengthDAO {
+public class TypeResistanceDAO {
 
     private Context context;
 
     private static final String TABLE = "TYPE_STRENGTH";
 
-    public TypeStrengthDAO(Context context) {
+    public TypeResistanceDAO(Context context) {
         this.context = context;
     }
 
@@ -41,7 +41,7 @@ public class TypeStrengthDAO {
     }
 
     public String[] insertAll() throws IOException {
-        InputStream is = context.getResources().openRawResource(R.raw.sql_pokemon_type_strength);
+        InputStream is = context.getResources().openRawResource(R.raw.sql_pokemon_type_resistance);
         byte[] buffer = new byte[is.available()];
         while (is.read(buffer) != -1) ;
         return new String(buffer).split(";");
