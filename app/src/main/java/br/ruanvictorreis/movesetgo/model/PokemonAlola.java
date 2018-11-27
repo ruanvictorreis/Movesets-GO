@@ -28,7 +28,7 @@ public class PokemonAlola extends Pokemon {
 
     @Override
     public String getSuggestionPictureLink() {
-        return "https://pokemon.gameinfo.io/images/pokemon-go/" + getFormattedId() + "-61.png";
+        return "https://db.pokemongohub.net/images/official/full/" + getFormattedId() + "_f2.png";
     }
 
     private String getFormattedId() {
