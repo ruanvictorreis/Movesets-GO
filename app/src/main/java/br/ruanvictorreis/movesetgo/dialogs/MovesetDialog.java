@@ -42,7 +42,7 @@ public class MovesetDialog extends DialogFragment {
         TextView pokemonName = (TextView) view.findViewById(R.id.pokemon_name);
         TextView pokemonNumber = (TextView) view.findViewById(R.id.pokemon_number);
 
-        String numberLabel = "#" + String.valueOf(pokemon.getId());
+        String numberLabel = "#" + String.valueOf(pokemon.getNumber());
         pokemonNumber.setText(numberLabel);
         pokemonName.setText(pokemon.getName());
 

@@ -8,6 +8,6 @@ public class NumberComparator implements Comparator<Pokemon> {
 
     @Override
     public int compare(Pokemon p1, Pokemon p2) {
-        return p1.getId().compareTo(p2.getId());
+        return p1.getNumber().compareTo(p2.getNumber());
     }
 }

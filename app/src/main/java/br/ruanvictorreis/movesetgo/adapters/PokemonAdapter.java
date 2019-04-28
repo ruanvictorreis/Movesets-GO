@@ -50,14 +50,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         final Pokemon pokemon = pokemonList.get(position);
         holder.pokemonName.setText(pokemon.getName());
 
-        String pokeNumber = "#" + String.valueOf(pokemon.getId());
+        String pokeNumber = "#" + String.valueOf(pokemon.getNumber());
         holder.pokemonNumber.setText(pokeNumber);
 
         Type typeOne = pokemon.getTypeOne();
         holder.pokemonTypeOne.setImageResource(typeOne.getMipmapResource());
 
         Picasso.with(context)
-                .load(pokemon.getSuggestionPictureLink())
+                .load(pokemon.getPicture())
                 .into(holder.circleImageView);
 
         if (imageAllowed) {

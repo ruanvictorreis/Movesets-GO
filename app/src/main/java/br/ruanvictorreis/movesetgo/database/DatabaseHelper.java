@@ -21,7 +21,7 @@ import br.ruanvictorreis.movesetgo.database.dao.TypeWeaknessDAO;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MovesetPokemonGoPremium.db";
-    private static final int DATABASE_VERSION = 48;
+    private static final int DATABASE_VERSION = 49;
 
     private TypeDAO typeDAO;
 
@@ -54,11 +54,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             sqLiteDatabase.execSQL(typeDAO.createTable());
             sqLiteDatabase.execSQL(pokemonDAO.createSpeciesTable());
-            sqLiteDatabase.execSQL(pokemonDAO.createAlolaTable());
             sqLiteDatabase.execSQL(fastMovesDAO.createTable());
             sqLiteDatabase.execSQL(chargeMovesDAO.createTable());
-            sqLiteDatabase.execSQL(movesetsDAO.createNormalTable());
-            sqLiteDatabase.execSQL(movesetsDAO.createAlolaTable());
+            sqLiteDatabase.execSQL(movesetsDAO.createMovesetTable());
             sqLiteDatabase.execSQL(typeResistanceDAO.createTable());
             sqLiteDatabase.execSQL(typeWeaknessDAO.createTable());
 
@@ -70,10 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 sqLiteDatabase.execSQL(sql);
             }
 
-            for (String sql : pokemonDAO.insertAlolaSpecies()) {
-                sqLiteDatabase.execSQL(sql);
-            }
-
             for (String sql : fastMovesDAO.insertAll()) {
                 sqLiteDatabase.execSQL(sql);
             }
@@ -82,11 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 sqLiteDatabase.execSQL(sql);
             }
 
-            for (String sql : movesetsDAO.insertNormalMovesets()) {
-                sqLiteDatabase.execSQL(sql);
-            }
-
-            for (String sql : movesetsDAO.insertAlolaMovesets()) {
+            for (String sql : movesetsDAO.insertMovesets()) {
                 sqLiteDatabase.execSQL(sql);
             }
 

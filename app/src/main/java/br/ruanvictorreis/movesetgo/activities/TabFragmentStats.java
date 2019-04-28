@@ -1,7 +1,5 @@
 package br.ruanvictorreis.movesetgo.activities;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,7 +40,7 @@ public class TabFragmentStats extends Fragment {
         ImageView circleImageView = view.findViewById(R.id.pokemon_image);
 
         if (pokemon != null) {
-            String labelDialog = getString(R.string.hashtag) + String.valueOf(pokemon.getId());
+            String labelDialog = getString(R.string.hashtag) + String.valueOf(pokemon.getNumber());
             pokemonNumber.setText(labelDialog);
 
             attack.setText(String.valueOf(pokemon.getAttackRatio()));
@@ -52,7 +50,7 @@ public class TabFragmentStats extends Fragment {
             maxCp.setText(String.valueOf(pokemon.getMaxCpCap()));
 
             Picasso.with(view.getContext())
-                    .load(pokemon.getSuggestionPictureLink())
+                    .load(pokemon.getPicture())
                     .into(circleImageView);
 
             if (isImageAllowed) {

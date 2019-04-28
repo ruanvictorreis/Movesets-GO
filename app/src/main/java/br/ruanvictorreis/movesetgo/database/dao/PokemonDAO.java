@@ -14,9 +14,6 @@ import java.util.List;
 import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.comparators.NumberComparator;
 import br.ruanvictorreis.movesetgo.database.DatabaseHelper;
-import br.ruanvictorreis.movesetgo.factory.AlolaFactory;
-import br.ruanvictorreis.movesetgo.factory.NormalFactory;
-import br.ruanvictorreis.movesetgo.factory.PokemonFactory;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
 import br.ruanvictorreis.movesetgo.model.PokemonForm;
 import br.ruanvictorreis.movesetgo.model.Type;
@@ -40,20 +37,19 @@ public class PokemonDAO {
         return String.format(getCreateScript(), PokemonForm.NORMAL.getSource());
     }
 
-    public String createAlolaTable() {
-        return String.format(getCreateScript(), PokemonForm.ALOLA.getSource());
-    }
-
     private String getCreateScript() {
         return "CREATE TABLE %s(" +
+                "ID TEXT PRIMARY KEY, " +
                 "NAME TEXT NOT NULL, " +
-                "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "NUMBER INTEGER NOT NULL, " +
                 "HP_RATIO INTEGER NOT NULL, " +
                 "ATTACK_RATIO INTEGER NOT NULL, " +
                 "DEFENSE_RATIO INTEGER NOT NULL, " +
                 "MAX_CP_CAP INTEGER NOT NULL, " +
                 "ID_TYPE_ONE INTEGER NOT NULL, " +
                 "ID_TYPE_TWO INTEGER, " +
+                "FORM TEXT NOT NULL, " +
+                "PICTURE TEXT NOT NULL, " +
                 "FOREIGN KEY (ID_TYPE_ONE) REFERENCES POKEMON_TYPE(ID), " +
                 "FOREIGN KEY (ID_TYPE_TWO) REFERENCES POKEMON_TYPE(ID));";
     }
@@ -74,10 +70,6 @@ public class PokemonDAO {
         return readScript(R.raw.sql_pokemon_species);
     }
 
-    public String[] insertAlolaSpecies() throws IOException {
-        return readScript(R.raw.sql_pokemon_species_alola);
-    }
-
     private String[] readScript(int resource) throws IOException {
         InputStream is = context.getResources().openRawResource(resource);
         byte[] buffer = new byte[is.available()];
@@ -91,21 +83,15 @@ public class PokemonDAO {
         }
 
         List<Pokemon> pokemonList = new ArrayList<>();
-        pokemonList.addAll(selectNormalSpecies());
-        pokemonList.addAll(selectAlolaSpecies());
+        pokemonList.addAll(selectSpecies());
         Collections.sort(pokemonList, comparator);
 
         return pokemonList;
     }
 
-    private List<Pokemon> selectNormalSpecies() {
+    private List<Pokemon> selectSpecies() {
         String query = "SELECT * FROM " + PokemonForm.NORMAL.getSource();
-        return select(query, new NormalFactory());
-    }
-
-    private List<Pokemon> selectAlolaSpecies() {
-        String query = "SELECT * FROM " + PokemonForm.ALOLA.getSource();
-        return select(query, new AlolaFactory());
+        return select(query);
     }
 
     public List<Pokemon> selectAllByType(Type type, Comparator<Pokemon> comparator) {
@@ -114,43 +100,38 @@ public class PokemonDAO {
         }
 
         List<Pokemon> pokemonList = new ArrayList<>();
-        pokemonList.addAll(selectNormalSpeciesByType(type));
-        pokemonList.addAll(selectAlolaSpeciesByType(type));
+        pokemonList.addAll(selectSpeciesByType(type));
         Collections.sort(pokemonList, comparator);
 
         return pokemonList;
     }
 
-    private List<Pokemon> selectNormalSpeciesByType(Type type) {
+    private List<Pokemon> selectSpeciesByType(Type type) {
         String query = "SELECT * FROM " + PokemonForm.NORMAL.getSource() +
                 " WHERE ID_TYPE_ONE = " + String.valueOf(type.getId()) +
                 " OR ID_TYPE_TWO = " + String.valueOf(type.getId());
-        return select(query, new NormalFactory());
+        return select(query);
     }
 
-    private List<Pokemon> selectAlolaSpeciesByType(Type type) {
-        String query = "SELECT * FROM " + PokemonForm.ALOLA.getSource() +
-                " WHERE ID_TYPE_ONE = " + String.valueOf(type.getId()) +
-                " OR ID_TYPE_TWO = " + String.valueOf(type.getId());
-        return select(query, new AlolaFactory());
-    }
-
-    private List<Pokemon> select(String query, PokemonFactory factory) {
+    private List<Pokemon> select(String query) {
         List<Pokemon> result = new ArrayList<>();
         SQLiteDatabase sqlLite = new DatabaseHelper(context).getWritableDatabase();
         Cursor cursor = sqlLite.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                Pokemon pokemon = factory.createInstance();
-                pokemon.setName(cursor.getString(0));
-                pokemon.setId(cursor.getInt(1));
-                pokemon.setHpRatio(cursor.getInt(2));
-                pokemon.setAttackRatio(cursor.getInt(3));
-                pokemon.setDefenseRatio(cursor.getInt(4));
-                pokemon.setMaxCpCap(cursor.getInt(5));
-                pokemon.setTypeOne(typeDAO.selectOne(cursor.getInt(6)));
-                pokemon.setTypeTwo(typeDAO.selectOne(cursor.getInt(7)));
+                Pokemon pokemon = new Pokemon();
+                pokemon.setId(cursor.getString(0));
+                pokemon.setName(cursor.getString(1));
+                pokemon.setNumber(cursor.getInt(2));
+                pokemon.setHpRatio(cursor.getInt(3));
+                pokemon.setAttackRatio(cursor.getInt(4));
+                pokemon.setDefenseRatio(cursor.getInt(5));
+                pokemon.setMaxCpCap(cursor.getInt(6));
+                pokemon.setTypeOne(typeDAO.selectOne(cursor.getInt(7)));
+                pokemon.setTypeTwo(typeDAO.selectOne(cursor.getInt(8)));
+                pokemon.setForm(cursor.getString(9));
+                pokemon.setPicture(cursor.getString(10));
 
                 result.add(pokemon);
 

@@ -3,32 +3,44 @@ package br.ruanvictorreis.movesetgo.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Locale;
-
 /**
  * Pokemon Model
  * Created by Ruan on 08/10/2016.
  */
 public class Pokemon implements Parcelable {
 
-    Integer id;
+    private String id;
 
-    String name;
+    private Integer number;
 
-    Integer hpRatio;
+    private String name;
 
-    Integer attackRatio;
+    private Integer hpRatio;
 
-    Integer defenseRatio;
+    private Integer attackRatio;
 
-    Integer maxCpCap;
+    private Integer defenseRatio;
 
-    Type typeOne;
+    private Integer maxCpCap;
 
-    Type typeTwo;
+    private String form;
+
+    private Type typeOne;
+
+    private Type typeTwo;
+
+    private String picture;
 
     public Pokemon() {
         super();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,12 +51,12 @@ public class Pokemon implements Parcelable {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public Integer getHpRatio() {
@@ -99,16 +111,22 @@ public class Pokemon implements Parcelable {
         return getAttackRatio() + getDefenseRatio() + getHpRatio();
     }
 
-    public String getSuggestionPictureLink() {
-        return "https://db.pokemongohub.net/images/official/full/" + getFormattedId() + ".png";
+    public String getPicture() {
+        return picture;
     }
 
-    private String getFormattedId() {
-        return String.format(Locale.US, "%03d", getId());
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
-    public PokemonForm getForm() {
-        return PokemonForm.NORMAL;
+    /**
+    public String getForm() {
+        return form;
+    }
+     */
+
+    public void setForm(String form) {
+        this.form = form;
     }
 
     public MovesetKind getMovesetKind() {
@@ -139,14 +157,17 @@ public class Pokemon implements Parcelable {
     @Override
     public String toString() {
         return "Pokemon{" +
-                "id=" + id +
+                "id='" + id + '\'' +
+                ", number=" + number +
                 ", name='" + name + '\'' +
                 ", hpRatio=" + hpRatio +
                 ", attackRatio=" + attackRatio +
                 ", defenseRatio=" + defenseRatio +
                 ", maxCpCap=" + maxCpCap +
+                ", form='" + form + '\'' +
                 ", typeOne=" + typeOne +
                 ", typeTwo=" + typeTwo +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 
@@ -160,24 +181,30 @@ public class Pokemon implements Parcelable {
         parcel.writeParcelable(typeOne, i);
         parcel.writeParcelable(typeTwo, i);
 
-        parcel.writeInt(id);
+        parcel.writeString(id);
+        parcel.writeInt(number);
         parcel.writeString(name);
         parcel.writeInt(hpRatio);
         parcel.writeInt(attackRatio);
         parcel.writeInt(defenseRatio);
         parcel.writeInt(maxCpCap);
+        parcel.writeString(form);
+        parcel.writeString(picture);
     }
 
     public Pokemon(Parcel source) {
         this.typeOne = source.readParcelable(Type.class.getClassLoader());
         this.typeTwo = source.readParcelable(Type.class.getClassLoader());
 
-        this.id = source.readInt();
+        this.id = source.readString();
+        this.number = source.readInt();
         this.name = source.readString();
         this.hpRatio = source.readInt();
         this.attackRatio = source.readInt();
         this.defenseRatio = source.readInt();
         this.maxCpCap = source.readInt();
+        this.form = source.readString();
+        this.picture = source.readString();
     }
 
     public static final Parcelable.Creator<Pokemon> CREATOR = new Parcelable.Creator<Pokemon>() {
