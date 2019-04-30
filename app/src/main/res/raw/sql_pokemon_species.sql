@@ -366,7 +366,10 @@ INSERT INTO POKEMON_SPECIES VALUES('347-normal', 'Anorith', 347, 128, 176, 100, 
 INSERT INTO POKEMON_SPECIES VALUES('348-normal', 'Armaldo', 348, 181, 222, 174, 2849, 16, 1, 'normal', 'https://db.pokemongohub.net/images/official/full/348.png');
 INSERT INTO POKEMON_SPECIES VALUES('349-normal', 'Feebas', 349, 85, 29, 85, 275, 18, null, 'normal', 'https://db.pokemongohub.net/images/official/full/349.png');
 INSERT INTO POKEMON_SPECIES VALUES('350-normal', 'Milotic', 350, 216, 192, 219, 3006, 18, null, 'normal', 'https://db.pokemongohub.net/images/official/full/350.png');
-INSERT INTO POKEMON_SPECIES VALUES('351-normal', 'Castform', 351, 172, 139, 139, 1632, 13, null, 'normal', 'https://db.pokemongohub.net/images/official/full/351.png');
+INSERT INTO POKEMON_SPECIES VALUES('351-normal', 'Castform (Normal)', 351, 172, 139, 139, 1632, 13, null, 'normal', 'https://db.pokemongohub.net/images/official/full/351.png');
+INSERT INTO POKEMON_SPECIES VALUES('351-sunny', 'Castform (Sunny)', 351, 172, 139, 139, 1632, 7, null, 'sunny', 'https://pokemon.gameinfo.io/images/pokemon-go/351-12.png');
+INSERT INTO POKEMON_SPECIES VALUES('351-rainy', 'Castform (Rainy)', 351, 172, 139, 139, 1632, 18, null, 'rainy', 'https://pokemon.gameinfo.io/images/pokemon-go/351-13.png');
+INSERT INTO POKEMON_SPECIES VALUES('351-snowy', 'Castform (Snowy)', 351, 172, 139, 139, 1632, 12, null, 'snowy', 'https://pokemon.gameinfo.io/images/pokemon-go/351-14.png');
 INSERT INTO POKEMON_SPECIES VALUES('352-normal', 'Kecleon', 352, 155, 161, 189, 2047, 13, null, 'normal', 'https://db.pokemongohub.net/images/official/full/352.png');
 INSERT INTO POKEMON_SPECIES VALUES('353-normal', 'Shuppet', 353, 127, 138, 65, 1019, 9, null, 'normal', 'https://db.pokemongohub.net/images/official/full/353.png');
 INSERT INTO POKEMON_SPECIES VALUES('354-normal', 'Banette', 354, 162, 218, 126, 2299, 9, null, 'normal', 'https://db.pokemongohub.net/images/official/full/354.png');
