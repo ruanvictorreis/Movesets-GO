@@ -586,5 +586,14 @@
     },
     "LAST_RESORT": {
         "name": "Último Recurso"
+    },
+    "LEAF_TORNADO": {
+        "name": "Tornado de Folhas"
+    },
+    "ACID_SPRAY": {
+        "name": "Spray Ácido"
+    },
+    "POWER_UP_PUNCH": {
+      "name": "Soco Empoderador"
     }
 }
