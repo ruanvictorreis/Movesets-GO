@@ -405,6 +405,9 @@ INSERT INTO POKEMON_SPECIES VALUES('383-normal', 'Groudon', 383, 205, 270, 228, 
 INSERT INTO POKEMON_SPECIES VALUES('384-normal', 'Rayquaza', 384, 213, 284, 170, 3835, 3, 8, 'normal', 'https://db.pokemongohub.net/images/official/full/384.png');
 INSERT INTO POKEMON_SPECIES VALUES('385-normal', 'Jirachi', 385, 225, 210, 210, 3266, 17, 15, 'normal', 'https://db.pokemongohub.net/images/official/full/385.png');
 INSERT INTO POKEMON_SPECIES VALUES('386-normal', 'Deoxys', 386, 137, 345, 115, 3161, 15, null, 'normal', 'https://db.pokemongohub.net/images/official/full/386.png');
+INSERT INTO POKEMON_SPECIES VALUES('386-attack', 'Deoxys (Attack)', 386, 137, 414, 46, 2580, 15, null, 'attack', 'https://db.pokemongohub.net/images/official/detail/386_f2.png');
+INSERT INTO POKEMON_SPECIES VALUES('386-defense', 'Deoxys (Defense)', 386, 137, 144, 330, 2274, 15, null, 'defense', 'https://db.pokemongohub.net/images/official/detail/386_f3.png');
+INSERT INTO POKEMON_SPECIES VALUES('386-speed', 'Deoxys (Speed)', 386, 137, 230, 218, 2879, 15, null, 'speed', 'https://db.pokemongohub.net/images/official/full/386_f4.png');
 INSERT INTO POKEMON_SPECIES VALUES('387-normal', 'Turtwig', 387, 146, 119, 110, 1187, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/387.png');
 INSERT INTO POKEMON_SPECIES VALUES('388-normal', 'Grotle', 388, 181, 157, 143, 1890, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/388.png');
 INSERT INTO POKEMON_SPECIES VALUES('389-normal', 'Torterra', 389, 216, 202, 188, 2935, 10, 11, 'normal', 'https://db.pokemongohub.net/images/official/full/389.png');
