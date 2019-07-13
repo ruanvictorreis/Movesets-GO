@@ -166,6 +166,7 @@ INSERT INTO POKEMON_SPECIES VALUES('147-normal', 'Dratini', 147, 121, 119, 91, 1
 INSERT INTO POKEMON_SPECIES VALUES('148-normal', 'Dragonair', 148, 156, 163, 135, 1781, 3, null, 'normal', 'https://db.pokemongohub.net/images/official/full/148.png');
 INSERT INTO POKEMON_SPECIES VALUES('149-normal', 'Dragonite', 149, 209, 263, 198, 3793, 3, 8, 'normal', 'https://db.pokemongohub.net/images/official/full/149.png');
 INSERT INTO POKEMON_SPECIES VALUES('150-normal', 'Mewtwo', 150, 214, 300, 182, 4179, 15, null, 'normal', 'https://db.pokemongohub.net/images/official/full/150.png');
+INSERT INTO POKEMON_SPECIES VALUES('150-armored', 'Mewtwo (Armored)', 150, 214, 182, 278, 3187, 15, null, 'armored', 'https://db.pokemongohub.net/images/official/full/150_f4.png');
 INSERT INTO POKEMON_SPECIES VALUES('151-normal', 'Mew', 151, 225, 210, 210, 3266, 15, null, 'normal', 'https://db.pokemongohub.net/images/official/full/151.png');
 INSERT INTO POKEMON_SPECIES VALUES('152-normal', 'Chikorita', 152, 128, 92, 122, 935, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/152.png');
 INSERT INTO POKEMON_SPECIES VALUES('153-normal', 'Bayleef', 153, 155, 122, 155, 1455, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/153.png');
