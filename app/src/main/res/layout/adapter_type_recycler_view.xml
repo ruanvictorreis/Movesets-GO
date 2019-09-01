@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="@string/weak_against" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/types_weakness_recycler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="@string/strong_against" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/types_strength_recycler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

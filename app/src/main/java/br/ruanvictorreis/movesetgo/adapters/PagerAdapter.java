@@ -5,9 +5,9 @@ package br.ruanvictorreis.movesetgo.adapters;
  * Created by Ruan on 09/10/2016.
  */
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import br.ruanvictorreis.movesetgo.activities.TabFragmentAttack;
 import br.ruanvictorreis.movesetgo.activities.TabFragmentDefense;
