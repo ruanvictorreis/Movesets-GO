@@ -595,5 +595,20 @@
     },
     "POWER_UP_PUNCH": {
       "name": "Soco Empoderador"
+    },
+    "CRABHAMMER":{
+      "name": "Martelo Caranguejo"
+    },
+    "SYNCHRONOISE": {
+      "name": "Barulho Sincronizado"
+    },
+    "SKULL_BASH": {
+      "name": "Quebra-crânio"
+    },
+    "CHARM_FAST": {
+      "name": "Encantar"
+    },
+    "EARTH_POWER": {
+      "name": "Poder da Terra"
     }
 }
