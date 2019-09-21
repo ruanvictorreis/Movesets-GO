@@ -6,10 +6,6 @@
             android:id="@+id/nav_pokemon_type"
             android:icon="@drawable/chemical_weapon"
             android:title="@string/type_pokemon" />
-        <item
-            android:id="@+id/get_premium"
-            android:icon="@drawable/google_play"
-            android:title="@string/get_premium" />
     </group>
 
     <item android:title="@string/communicate">

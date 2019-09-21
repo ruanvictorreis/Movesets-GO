@@ -59,15 +59,5 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ruanvictorreis.movesetgo.activities.MainActivity" />
         </activity>
-
-        <activity
-            android:name=".activities.GetPremiumActivity"
-            android:label="@string/title_activity_get_premium"
-            android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.ruanvictorreis.movesetgo.activities.MainActivity" />
-        </activity>
     </application>
 </manifest>

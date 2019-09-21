@@ -260,8 +260,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(PokemonTypeActivity.class);
         } else if (id == R.id.nav_about) {
             startActivity(AboutActivity.class);
-        } else if (id == R.id.get_premium) {
-            startActivity(GetPremiumActivity.class);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
