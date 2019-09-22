@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
 
     private void handlerAccessNummber() {
         Integer currentAccess = getNumberAccess();
-        if (currentAccess >= 20) {
+        if (currentAccess >= 10) {
             allowPokemonImage();
         } else {
             saveNumberAccess(++currentAccess);
