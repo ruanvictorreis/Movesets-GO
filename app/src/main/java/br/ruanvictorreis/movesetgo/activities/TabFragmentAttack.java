@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -45,8 +46,14 @@ public class TabFragmentAttack extends Fragment implements TabFragmentMoveset {
         View view = inflater.inflate(R.layout.tab_fragment_attack, container, false);
         //setHasOptionsMenu(true);
 
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating", "G");
+
         mAdView = view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
+                .build();
+
         mAdView.loadAd(adRequest);
 
         mRecyclerView = view.findViewById(R.id.moveset_attack_recycler_view);

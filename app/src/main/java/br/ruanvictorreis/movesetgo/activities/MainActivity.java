@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -57,8 +59,14 @@ public class MainActivity extends AppCompatActivity
         MobileAds.initialize(this,
                 getString(R.string.admob_app_id));
 
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating", "G");
+
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
+                .build();
+
         mAdView.loadAd(adRequest);
 
         pokemonList = new ArrayList<>();
