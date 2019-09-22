@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.ruanvictorreis.movesetgo">
+    package="br.ruanvictorreis.movesetgopremium">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,18 +17,18 @@
             android:value="ca-app-pub-1666278822086343~6483933915"/>
 
         <activity
-            android:name=".activities.MovesetActivity"
+            android:name="br.ruanvictorreis.movesetgopremium.activities.MovesetActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_moveset"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.ruanvictorreis.movesetgo.activities.MainActivity" />
+                android:value="br.ruanvictorreis.movesetgopremium.activities.MainActivity" />
         </activity>
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="br.ruanvictorreis.movesetgopremium.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -41,23 +41,23 @@
         </activity>
 
         <activity
-            android:name=".activities.PokemonTypeActivity"
+            android:name="br.ruanvictorreis.movesetgopremium.activities.PokemonTypeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_pokemon_type"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.ruanvictorreis.movesetgo.activities.MainActivity" />
+                android:value="br.ruanvictorreis.movesetgopremium.activities.MainActivity" />
         </activity>
 
         <activity
-            android:name=".activities.AboutActivity"
+            android:name="br.ruanvictorreis.movesetgopremium.activities.AboutActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.ruanvictorreis.movesetgo.activities.MainActivity" />
+                android:value="br.ruanvictorreis.movesetgopremium.activities.MainActivity" />
         </activity>
     </application>
 </manifest>

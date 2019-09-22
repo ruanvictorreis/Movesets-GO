@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.ruanvictorreis.movesetgo.activities.MainActivity"
+    tools:context="br.ruanvictorreis.movesetgopremium.activities.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <!-- A RecyclerView with some commonly used attributes -->
@@ -14,17 +14,7 @@
         android:id="@+id/pokemon_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/adView"
         android:layout_alignParentTop="true"
         android:scrollbars="vertical" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_home_footer" />
 
 </RelativeLayout>

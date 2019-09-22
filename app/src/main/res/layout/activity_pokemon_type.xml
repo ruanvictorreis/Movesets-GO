@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:fitsSystemWindows="true"
-    tools:context="br.ruanvictorreis.movesetgo.activities.PokemonTypeActivity">
+    tools:context="br.ruanvictorreis.movesetgopremium.activities.PokemonTypeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
