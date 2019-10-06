@@ -21,7 +21,7 @@ import br.ruanvictorreis.movesetgopremium.database.dao.TypeWeaknessDAO;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MovesetPokemonGoPremium.db";
-    private static final int DATABASE_VERSION = 58;
+    private static final int DATABASE_VERSION = 59;
 
     private TypeDAO typeDAO;
 
