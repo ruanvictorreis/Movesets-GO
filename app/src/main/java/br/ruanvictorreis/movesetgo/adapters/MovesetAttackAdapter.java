@@ -90,6 +90,9 @@ public class MovesetAttackAdapter extends RecyclerView.Adapter<MovesetAttackAdap
         holder.damagePercent.setText(getPercentageFormatted(moveset.getMovesetDamage()));
         holder.damagePerSecond.setText(getDamagePerSecondFormatted(moveset.getMovesetDamage()));
 
+        // Set Community Day Indicators Here
+        holder.quickCommunityDay.setVisibility(View.GONE);
+
         if (!moveset.getUpdated()) {
             holder.movesetContainer.setBackgroundColor(holder.colorGray);
         } else {
@@ -105,6 +108,7 @@ public class MovesetAttackAdapter extends RecyclerView.Adapter<MovesetAttackAdap
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView quickMoveName, mainMoveName, rankingPosition;
         TextView damagePercent, damagePerSecond;
+        TextView quickCommunityDay, mainCommunityDay;
         ImageView quickMoveType, mainMoveType;
         RelativeLayout movesetContainer;
 
@@ -115,6 +119,8 @@ public class MovesetAttackAdapter extends RecyclerView.Adapter<MovesetAttackAdap
             super(view);
             quickMoveName = (TextView) view.findViewById(R.id.basic_attack_name);
             mainMoveName = (TextView) view.findViewById(R.id.charge_attack_name);
+            quickCommunityDay = (TextView) view.findViewById(R.id.community_basic_attack);
+            mainCommunityDay = (TextView) view.findViewById(R.id.community_charge_attack);
             rankingPosition = (TextView) view.findViewById(R.id.ranking_position);
             damagePercent = (TextView) view.findViewById(R.id.damage_percent);
             damagePerSecond = (TextView) view.findViewById(R.id.moveset_dps);

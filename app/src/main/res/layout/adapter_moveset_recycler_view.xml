@@ -34,17 +34,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/basicMoveType"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_toRightOf="@+id/basicMoveType"
+        android:layout_marginLeft="@dimen/activity_horizontal_half_margin"
         android:text="@string/basic_attack" />
+
+    <TextView
+        android:id="@+id/community_basic_attack"
+        style="@style/CommunityDayIndicatorStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/basic_attack_name"
+        android:layout_below="@+id/basic_attack_name"
+        android:text="@string/community_day" />
 
     <ImageView
         android:id="@+id/chargeMoveType"
         android:layout_width="@dimen/type_icon_size"
         android:layout_height="@dimen/type_icon_size"
-        android:layout_below="@+id/basicMoveType"
+        android:layout_alignTop="@+id/charge_attack_name"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_toRightOf="@+id/ranking_position" />
 
     <TextView
@@ -52,9 +60,19 @@
         style="@style/MoveLabelTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/basic_attack_name"
-        android:layout_alignTop="@+id/chargeMoveType"
+        android:layout_alignStart="@+id/basic_attack_name"
+        android:layout_below="@+id/community_basic_attack"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/charge_attack" />
+
+    <TextView
+        android:id="@+id/community_charge_attack"
+        style="@style/CommunityDayIndicatorStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/charge_attack_name"
+        android:layout_below="@+id/charge_attack_name"
+        android:text="@string/community_day" />
 
     <TextView
         android:id="@+id/damage_percent"
