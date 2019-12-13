@@ -34,7 +34,7 @@ public class CommunityDayDAO {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         database.setPersistenceEnabled(true);
 
-        String resourcePath = "community-day";
+        String resourcePath = "community-moves";
         DatabaseReference reference = database.getReference(resourcePath);
 
         reference.addValueEventListener(new ValueEventListener() {

@@ -109,11 +109,12 @@ public class MovesetAttackAdapter extends RecyclerView.Adapter<MovesetAttackAdap
             holder.mainCommunityDay.setVisibility(View.GONE);
         }
 
+        /**
         if (!moveset.getUpdated()) {
             holder.movesetContainer.setBackgroundColor(holder.colorGray);
         } else {
             holder.movesetContainer.setBackground(holder.containerBackground);
-        }
+        }*/
     }
 
     @Override
