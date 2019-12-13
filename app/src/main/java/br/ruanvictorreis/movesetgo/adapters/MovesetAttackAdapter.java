@@ -13,10 +13,12 @@ import java.util.Collections;
 import java.util.List;
 
 import br.ruanvictorreis.movesetgo.R;
+import br.ruanvictorreis.movesetgo.database.dao.CommunityDayDAO;
 import br.ruanvictorreis.movesetgo.model.FastMove;
 import br.ruanvictorreis.movesetgo.model.ChargeMove;
 import br.ruanvictorreis.movesetgo.model.DamageCalculator;
 import br.ruanvictorreis.movesetgo.model.Moveset;
+import br.ruanvictorreis.movesetgo.model.Pokemon;
 import br.ruanvictorreis.movesetgo.util.Formatter;
 
 /**
@@ -90,8 +92,22 @@ public class MovesetAttackAdapter extends RecyclerView.Adapter<MovesetAttackAdap
         holder.damagePercent.setText(getPercentageFormatted(moveset.getMovesetDamage()));
         holder.damagePerSecond.setText(getDamagePerSecondFormatted(moveset.getMovesetDamage()));
 
-        // Set Community Day Indicators Here
-        holder.quickCommunityDay.setVisibility(View.GONE);
+        CommunityDayDAO communityDayDAO = CommunityDayDAO.getInstance();
+        String pokemonName = moveset.getPokemon().getName().trim();
+        String fastMoveName = fastMove.getOriginalName().trim();
+        String chargeMoveName = chargeMove.getOriginalName().trim();
+
+        if (communityDayDAO.isCommunityDayMove(pokemonName, fastMoveName)) {
+            holder.quickCommunityDay.setVisibility(View.VISIBLE);
+        } else {
+            holder.quickCommunityDay.setVisibility(View.GONE);
+        }
+
+        if (communityDayDAO.isCommunityDayMove(pokemonName, chargeMoveName)) {
+            holder.mainCommunityDay.setVisibility(View.VISIBLE);
+        } else {
+            holder.mainCommunityDay.setVisibility(View.GONE);
+        }
 
         if (!moveset.getUpdated()) {
             holder.movesetContainer.setBackgroundColor(holder.colorGray);
