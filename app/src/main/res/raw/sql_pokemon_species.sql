@@ -515,7 +515,8 @@ INSERT INTO POKEMON_SPECIES VALUES('488-normal', 'Cresselia', 488, 260, 152, 258
 INSERT INTO POKEMON_SPECIES VALUES('489-normal', 'Phione', 489, 190, 162, 162, 2106, 18, null, 'normal', 'https://db.pokemongohub.net/images/official/full/489.png');
 INSERT INTO POKEMON_SPECIES VALUES('490-normal', 'Manaphy', 490, 225, 210, 210, 3266, 18, null, 'normal', 'https://db.pokemongohub.net/images/official/full/490.png');
 INSERT INTO POKEMON_SPECIES VALUES('491-normal', 'Darkrai', 491, 172, 285, 198, 3740, 2, null, 'normal', 'https://db.pokemongohub.net/images/official/full/491.png');
-INSERT INTO POKEMON_SPECIES VALUES('492-normal', 'Shaymin', 492, 225, 261, 166, 3593, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/492.png');
+INSERT INTO POKEMON_SPECIES VALUES('492-land', 'Shaymin (Land)', 492, 225, 210, 210, 3265, 10, null, 'land', 'https://db.pokemongohub.net/images/official/full/492.png');
+INSERT INTO POKEMON_SPECIES VALUES('492-sky', 'Shaymin (Sky)', 492, 225, 261, 166, 3592, 10, 8, 'sky', 'https://db.pokemongohub.net/images/official/full/492_f2.png');
 INSERT INTO POKEMON_SPECIES VALUES('493-normal', 'Arceus', 493, 237, 238, 238, 3990, 13, null, 'normal', 'https://db.pokemongohub.net/images/official/full/493.png');
 INSERT INTO POKEMON_SPECIES VALUES('494-normal', 'Victini', 494, 225, 210, 210, 3265, 15, 7, 'normal', 'https://db.pokemongohub.net/images/official/full/494.png');
 INSERT INTO POKEMON_SPECIES VALUES('495-normal', 'Snivy', 495, 128, 88, 107, 849, 10, null, 'normal', 'https://db.pokemongohub.net/images/official/full/495.png');
