@@ -10,8 +10,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.List;
+
 import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.adapters.PagerAdapter;
+import br.ruanvictorreis.movesetgo.database.dao.CommunityDayDAO;
+import br.ruanvictorreis.movesetgo.model.CommunityMove;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
 
 public class MovesetActivity extends AppCompatActivity {

@@ -32,6 +32,7 @@ import br.ruanvictorreis.movesetgo.R;
 import br.ruanvictorreis.movesetgo.adapters.PokemonAdapter;
 import br.ruanvictorreis.movesetgo.asyncs.RecoveryPokemonAsyncTask;
 import br.ruanvictorreis.movesetgo.comparators.ListOrder;
+import br.ruanvictorreis.movesetgo.database.dao.CommunityDayDAO;
 import br.ruanvictorreis.movesetgo.model.Pokemon;
 import br.ruanvictorreis.movesetgo.model.Type;
 import br.ruanvictorreis.movesetgo.util.ClickListener;
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity
         }));
 
         setUpNavigation(toolbar);
+        getCommunityDayMoves();
         getAllPokemon();
 
         if (!isImageAllowed()) {
@@ -156,6 +158,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         new RecoveryPokemonAsyncTask(this, comparator, type).execute();
+    }
+
+    private void getCommunityDayMoves() {
+        CommunityDayDAO.getInstance();
     }
 
     private void setUpNavigation(Toolbar toolbar) {
