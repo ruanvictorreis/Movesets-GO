@@ -14,6 +14,8 @@ public class ChargeMove implements Parcelable {
 
     private String name;
 
+    private String originalName;
+
     private Double damage;
 
     private Double duration;
@@ -42,6 +44,14 @@ public class ChargeMove implements Parcelable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
     }
 
     public Double getDamage() {
@@ -101,6 +111,7 @@ public class ChargeMove implements Parcelable {
 
         parcel.writeInt(id);
         parcel.writeString(name);
+        parcel.writeString(originalName);
         parcel.writeDouble(damage);
         parcel.writeDouble(duration);
         parcel.writeDouble(critical);
@@ -112,6 +123,7 @@ public class ChargeMove implements Parcelable {
 
         this.id = source.readInt();
         this.name = source.readString();
+        this.originalName = source.readString();
         this.damage = source.readDouble();
         this.duration = source.readDouble();
         this.critical = source.readDouble();

@@ -78,6 +78,7 @@ public class ChargeMovesDAO {
                 chargeMove = new ChargeMove();
                 chargeMove.setId(cursor.getInt(0));
                 chargeMove.setName(cursor.getString(1));
+                chargeMove.setOriginalName(cursor.getString(1));
                 chargeMove.setDamage(cursor.getDouble(2));
                 chargeMove.setDuration(cursor.getDouble(3));
                 chargeMove.setType(typeDAO.selectOne(cursor.getInt(4)));

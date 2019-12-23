@@ -18,6 +18,8 @@ import br.ruanvictorreis.movesetgopremium.model.ChargeMove;
 import br.ruanvictorreis.movesetgopremium.model.DamageCalculator;
 import br.ruanvictorreis.movesetgopremium.model.Moveset;
 import br.ruanvictorreis.movesetgopremium.util.Formatter;
+import br.ruanvictorreis.movesetgo.database.dao.CommunityDayDAO;
+
 
 /**
  * RecyclerView adapter for Moveset
@@ -89,11 +91,29 @@ public class MovesetDefenseAdapter extends RecyclerView.Adapter<MovesetDefenseAd
         holder.damagePercent.setText(getPercentageFormatted(moveset.getMovesetDamage()));
         holder.damagePerSecond.setText(getDamagePerSecondFormatted(moveset.getMovesetDamage()));
 
+        CommunityDayDAO communityDayDAO = CommunityDayDAO.getInstance();
+        String pokemonName = moveset.getPokemon().getName().trim();
+        String fastMoveName = fastMove.getOriginalName().trim();
+        String chargeMoveName = chargeMove.getOriginalName().trim();
+
+        if (communityDayDAO.isCommunityDayMove(pokemonName, fastMoveName)) {
+            holder.quickCommunityDay.setVisibility(View.VISIBLE);
+        } else {
+            holder.quickCommunityDay.setVisibility(View.GONE);
+        }
+
+        if (communityDayDAO.isCommunityDayMove(pokemonName, chargeMoveName)) {
+            holder.mainCommunityDay.setVisibility(View.VISIBLE);
+        } else {
+            holder.mainCommunityDay.setVisibility(View.GONE);
+        }
+
+        /**
         if (!moveset.getUpdated()) {
             holder.movesetContainer.setBackgroundColor(holder.colorGray);
         } else {
             holder.movesetContainer.setBackground(holder.containerBackground);
-        }
+         }*/
     }
 
     @Override
@@ -104,6 +124,7 @@ public class MovesetDefenseAdapter extends RecyclerView.Adapter<MovesetDefenseAd
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView quickMoveName, mainMoveName, rankingPosition;
         TextView damagePercent, damagePerSecond;
+        TextView quickCommunityDay, mainCommunityDay;
         ImageView quickMoveType, mainMoveType;
         RelativeLayout movesetContainer;
 
@@ -114,6 +135,8 @@ public class MovesetDefenseAdapter extends RecyclerView.Adapter<MovesetDefenseAd
             super(view);
             quickMoveName = (TextView) view.findViewById(R.id.basic_attack_name);
             mainMoveName = (TextView) view.findViewById(R.id.charge_attack_name);
+            quickCommunityDay = (TextView) view.findViewById(R.id.community_basic_attack);
+            mainCommunityDay = (TextView) view.findViewById(R.id.community_charge_attack);
             rankingPosition = (TextView) view.findViewById(R.id.ranking_position);
             damagePercent = (TextView) view.findViewById(R.id.damage_percent);
             damagePerSecond = (TextView) view.findViewById(R.id.moveset_dps);

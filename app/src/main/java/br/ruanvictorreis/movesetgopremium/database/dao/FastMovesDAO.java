@@ -77,6 +77,7 @@ public class FastMovesDAO {
                 fastMove = new FastMove();
                 fastMove.setId(cursor.getInt(0));
                 fastMove.setName(cursor.getString(1));
+                fastMove.setOriginalName(cursor.getString(1));
                 fastMove.setDamage(cursor.getDouble(2));
                 fastMove.setDuration(cursor.getDouble(3));
                 fastMove.setType(typeDAO.selectOne(cursor.getInt(4)));

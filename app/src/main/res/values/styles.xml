@@ -63,4 +63,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="CommunityDayIndicatorStyle">
+        <item name="android:textColor">@color/colorPink</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

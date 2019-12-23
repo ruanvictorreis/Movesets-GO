@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,10 +18,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -35,6 +32,7 @@ import br.ruanvictorreis.movesetgopremium.model.Type;
 import br.ruanvictorreis.movesetgopremium.util.ClickListener;
 import br.ruanvictorreis.movesetgopremium.util.DividerItemDecoration;
 import br.ruanvictorreis.movesetgopremium.util.RecyclerTouchListener;
+import br.ruanvictorreis.movesetgo.database.dao.CommunityDayDAO;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity
         }));
 
         setUpNavigation(toolbar);
+        getCommunityDayMoves();
         getAllPokemon();
 
         if (!isImageAllowed()) {
@@ -115,6 +114,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         new RecoveryPokemonAsyncTask(this, comparator, type).execute();
+    }
+
+    private void getCommunityDayMoves() {
+        CommunityDayDAO.getInstance();
     }
 
     private void setUpNavigation(Toolbar toolbar) {
