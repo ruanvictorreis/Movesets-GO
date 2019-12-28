@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "852434558994",
+    "firebase_url": "https://movesets-ios.firebaseio.com",
+    "project_id": "movesets-ios",
+    "storage_bucket": "movesets-ios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852434558994:android:335b86636f5b3e159f78cb",
+        "android_client_info": {
+          "package_name": "br.ruanvictorreis.movesetgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852434558994-0lve4grnmj5n1lmpugj6gs7cmoe91icd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa1L2gG6ihJJwiZsGF5AJjPOXoVYZAua0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852434558994-0lve4grnmj5n1lmpugj6gs7cmoe91icd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "852434558994-lgd38i6gmg9o52pac2832nj2r3honsej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ruanvictorreis.Movesets-GO"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852434558994:android:ab3dbe7b915ef8bd9f78cb",
+        "android_client_info": {
+          "package_name": "br.ruanvictorreis.movesetgopremium.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852434558994-0lve4grnmj5n1lmpugj6gs7cmoe91icd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa1L2gG6ihJJwiZsGF5AJjPOXoVYZAua0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852434558994-0lve4grnmj5n1lmpugj6gs7cmoe91icd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "852434558994-lgd38i6gmg9o52pac2832nj2r3honsej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ruanvictorreis.Movesets-GO"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
